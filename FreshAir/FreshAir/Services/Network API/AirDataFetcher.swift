@@ -5,7 +5,6 @@
 //  Created by Cody Morley on 5/14/24.
 //
 
-<<<<<<< HEAD
 import CoreLocation
 import Foundation
 
@@ -68,6 +67,3 @@ struct AirDataFetcher {
         return url
     }
 }
-=======
-import Foundation
->>>>>>> 951c642b5ec216ea3724e73ba27bd05f359d4892

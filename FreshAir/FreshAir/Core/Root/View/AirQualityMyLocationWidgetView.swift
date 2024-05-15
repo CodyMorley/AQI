@@ -16,10 +16,4 @@ class AirQualityMyLocationWidgetView: UIView {
         // Drawing code
     }
     */
-<<<<<<< HEAD
-    
-    
-=======
->>>>>>> 951c642b5ec216ea3724e73ba27bd05f359d4892
-
 }

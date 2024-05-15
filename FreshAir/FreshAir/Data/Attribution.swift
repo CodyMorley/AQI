@@ -6,7 +6,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 
 struct Attribution: Codable {
     let url: String
@@ -14,6 +13,3 @@ struct Attribution: Codable {
     let logo: String?
 }
 
-
-=======
->>>>>>> 951c642b5ec216ea3724e73ba27bd05f359d4892

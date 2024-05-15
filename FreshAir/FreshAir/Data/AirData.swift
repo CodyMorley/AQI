@@ -6,8 +6,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
-
 struct AirData: Codable {
     let aqi: Int
     let idx: Int
@@ -18,5 +16,3 @@ struct AirData: Codable {
     let time: TimeInfo
     let forecast: Forecast
 }
-=======
->>>>>>> 951c642b5ec216ea3724e73ba27bd05f359d4892
