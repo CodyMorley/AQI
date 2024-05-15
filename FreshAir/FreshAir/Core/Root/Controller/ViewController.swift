@@ -6,6 +6,7 @@
 //
 
 import UIKit
+<<<<<<< HEAD
 import SwiftUI
 
 class ViewController: UIViewController {
@@ -32,3 +33,16 @@ class ViewController: UIViewController {
 #Preview {
     ViewController()
 }
+=======
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+    
+}
+
+>>>>>>> 951c642b5ec216ea3724e73ba27bd05f359d4892

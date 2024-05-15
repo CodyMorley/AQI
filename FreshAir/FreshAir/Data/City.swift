@@ -6,6 +6,7 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 
 struct City: Codable {
     let geo: [Double]
@@ -13,3 +14,5 @@ struct City: Codable {
     let url: String
     let location: String
 }
+=======
+>>>>>>> 951c642b5ec216ea3724e73ba27bd05f359d4892

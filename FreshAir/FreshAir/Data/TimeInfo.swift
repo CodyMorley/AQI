@@ -6,6 +6,7 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 
 struct TimeInfo: Codable {
     let s: String
@@ -13,3 +14,5 @@ struct TimeInfo: Codable {
     let v: Int
     let iso: String
 }
+=======
+>>>>>>> 951c642b5ec216ea3724e73ba27bd05f359d4892

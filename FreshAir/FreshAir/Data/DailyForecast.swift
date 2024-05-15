@@ -6,6 +6,7 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 
 struct DailyForecast: Codable {
     let avg: Int
@@ -13,3 +14,5 @@ struct DailyForecast: Codable {
     let max: Int
     let min: Int
 }
+=======
+>>>>>>> 951c642b5ec216ea3724e73ba27bd05f359d4892

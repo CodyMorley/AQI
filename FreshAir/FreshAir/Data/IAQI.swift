@@ -6,6 +6,7 @@
 //
 
 import Foundation
+<<<<<<< HEAD
 
 struct IAQI: Codable {
     struct DataPoint: Codable {
@@ -24,3 +25,5 @@ struct IAQI: Codable {
     let w: DataPoint?
     let wg: DataPoint?
 }
+=======
+>>>>>>> 951c642b5ec216ea3724e73ba27bd05f359d4892
