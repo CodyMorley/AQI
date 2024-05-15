@@ -10,12 +10,20 @@
 		04F3E0B52BF3F4FC00C63A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */; };
 		04F3E0B72BF3F4FC00C63A67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */; };
 		04F3E0B92BF3F4FC00C63A67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B82BF3F4FC00C63A67 /* ViewController.swift */; };
-		04F3E0BC2BF3F4FC00C63A67 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E0BB2BF3F4FC00C63A67 /* Base */; };
 		04F3E0BE2BF3F4FD00C63A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E0BD2BF3F4FD00C63A67 /* Assets.xcassets */; };
 		04F3E0C12BF3F4FD00C63A67 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E0C02BF3F4FD00C63A67 /* Base */; };
 		04F3E0CC2BF3F4FD00C63A67 /* FreshAirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0CB2BF3F4FD00C63A67 /* FreshAirTests.swift */; };
 		04F3E0D62BF3F4FD00C63A67 /* FreshAirUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0D52BF3F4FD00C63A67 /* FreshAirUITests.swift */; };
 		04F3E0D82BF3F4FD00C63A67 /* FreshAirUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0D72BF3F4FD00C63A67 /* FreshAirUITestsLaunchTests.swift */; };
+		04F3E0EF2BF442A900C63A67 /* AirData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0EE2BF442A900C63A67 /* AirData.swift */; };
+		04F3E0F12BF442DC00C63A67 /* Attribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0F02BF442DC00C63A67 /* Attribution.swift */; };
+		04F3E0F32BF4432D00C63A67 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0F22BF4432D00C63A67 /* City.swift */; };
+		04F3E0F52BF4436800C63A67 /* IAQI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0F42BF4436800C63A67 /* IAQI.swift */; };
+		04F3E0F72BF4442A00C63A67 /* TimeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0F62BF4442A00C63A67 /* TimeInfo.swift */; };
+		04F3E0F92BF4448300C63A67 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0F82BF4448300C63A67 /* Forecast.swift */; };
+		04F3E0FB2BF444AE00C63A67 /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0FA2BF444AE00C63A67 /* DailyForecast.swift */; };
+		04F3E0FE2BF4472000C63A67 /* AirDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0FD2BF4472000C63A67 /* AirDataFetcher.swift */; };
+		04F3E1002BF484EC00C63A67 /* AirQualityMyLocationWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0FF2BF484EC00C63A67 /* AirQualityMyLocationWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +48,6 @@
 		04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04F3E0B82BF3F4FC00C63A67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		04F3E0BB2BF3F4FC00C63A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04F3E0BD2BF3F4FD00C63A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04F3E0C02BF3F4FD00C63A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04F3E0C22BF3F4FD00C63A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +56,15 @@
 		04F3E0D12BF3F4FD00C63A67 /* FreshAirUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreshAirUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F3E0D52BF3F4FD00C63A67 /* FreshAirUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreshAirUITests.swift; sourceTree = "<group>"; };
 		04F3E0D72BF3F4FD00C63A67 /* FreshAirUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreshAirUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		04F3E0EE2BF442A900C63A67 /* AirData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirData.swift; sourceTree = "<group>"; };
+		04F3E0F02BF442DC00C63A67 /* Attribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribution.swift; sourceTree = "<group>"; };
+		04F3E0F22BF4432D00C63A67 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		04F3E0F42BF4436800C63A67 /* IAQI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAQI.swift; sourceTree = "<group>"; };
+		04F3E0F62BF4442A00C63A67 /* TimeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInfo.swift; sourceTree = "<group>"; };
+		04F3E0F82BF4448300C63A67 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		04F3E0FA2BF444AE00C63A67 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
+		04F3E0FD2BF4472000C63A67 /* AirDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDataFetcher.swift; sourceTree = "<group>"; };
+		04F3E0FF2BF484EC00C63A67 /* AirQualityMyLocationWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AirQualityMyLocationWidgetView.swift; path = View/AirQualityMyLocationWidgetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +115,13 @@
 		04F3E0B32BF3F4FC00C63A67 /* FreshAir */ = {
 			isa = PBXGroup;
 			children = (
-				04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */,
-				04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */,
-				04F3E0B82BF3F4FC00C63A67 /* ViewController.swift */,
-				04F3E0BA2BF3F4FC00C63A67 /* Main.storyboard */,
-				04F3E0BD2BF3F4FD00C63A67 /* Assets.xcassets */,
+				04F3E0E42BF3F5C600C63A67 /* Application */,
+				04F3E0E52BF3F5E200C63A67 /* Core */,
+				04F3E0E72BF3F77900C63A67 /* Data */,
+				04F3E0ED2BF4428000C63A67 /* Services */,
+				04F3E0E82BF3F78900C63A67 /* Utility */,
 				04F3E0BF2BF3F4FD00C63A67 /* LaunchScreen.storyboard */,
+				04F3E0BD2BF3F4FD00C63A67 /* Assets.xcassets */,
 				04F3E0C22BF3F4FD00C63A67 /* Info.plist */,
 			);
 			path = FreshAir;
@@ -125,6 +142,85 @@
 				04F3E0D72BF3F4FD00C63A67 /* FreshAirUITestsLaunchTests.swift */,
 			);
 			path = FreshAirUITests;
+			sourceTree = "<group>";
+		};
+		04F3E0E42BF3F5C600C63A67 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */,
+				04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		04F3E0E52BF3F5E200C63A67 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				04F3E0E62BF3F5EC00C63A67 /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		04F3E0E62BF3F5EC00C63A67 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				04F3E0EA2BF3F7B500C63A67 /* Controller */,
+				04F3E0E92BF3F7AF00C63A67 /* View */,
+				04F3E0FF2BF484EC00C63A67 /* AirQualityMyLocationWidgetView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		04F3E0E72BF3F77900C63A67 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				04F3E0EE2BF442A900C63A67 /* AirData.swift */,
+				04F3E0F02BF442DC00C63A67 /* Attribution.swift */,
+				04F3E0F22BF4432D00C63A67 /* City.swift */,
+				04F3E0FA2BF444AE00C63A67 /* DailyForecast.swift */,
+				04F3E0F82BF4448300C63A67 /* Forecast.swift */,
+				04F3E0F42BF4436800C63A67 /* IAQI.swift */,
+				04F3E0F62BF4442A00C63A67 /* TimeInfo.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		04F3E0E82BF3F78900C63A67 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		04F3E0E92BF3F7AF00C63A67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04F3E0EA2BF3F7B500C63A67 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04F3E0B82BF3F4FC00C63A67 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04F3E0ED2BF4428000C63A67 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04F3E0FC2BF4470000C63A67 /* Network API */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		04F3E0FC2BF4470000C63A67 /* Network API */ = {
+			isa = PBXGroup;
+			children = (
+				04F3E0FD2BF4472000C63A67 /* AirDataFetcher.swift */,
+			);
+			path = "Network API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +329,6 @@
 			files = (
 				04F3E0BE2BF3F4FD00C63A67 /* Assets.xcassets in Resources */,
 				04F3E0C12BF3F4FD00C63A67 /* Base in Resources */,
-				04F3E0BC2BF3F4FC00C63A67 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +354,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F3E0B92BF3F4FC00C63A67 /* ViewController.swift in Sources */,
+				04F3E0F52BF4436800C63A67 /* IAQI.swift in Sources */,
+				04F3E0EF2BF442A900C63A67 /* AirData.swift in Sources */,
+				04F3E0FB2BF444AE00C63A67 /* DailyForecast.swift in Sources */,
+				04F3E0F92BF4448300C63A67 /* Forecast.swift in Sources */,
+				04F3E0FE2BF4472000C63A67 /* AirDataFetcher.swift in Sources */,
+				04F3E0F12BF442DC00C63A67 /* Attribution.swift in Sources */,
+				04F3E1002BF484EC00C63A67 /* AirQualityMyLocationWidgetView.swift in Sources */,
+				04F3E0F72BF4442A00C63A67 /* TimeInfo.swift in Sources */,
 				04F3E0B52BF3F4FC00C63A67 /* AppDelegate.swift in Sources */,
 				04F3E0B72BF3F4FC00C63A67 /* SceneDelegate.swift in Sources */,
+				04F3E0F32BF4432D00C63A67 /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +401,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04F3E0BA2BF3F4FC00C63A67 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04F3E0BB2BF3F4FC00C63A67 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		04F3E0BF2BF3F4FD00C63A67 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -447,7 +543,6 @@
 				INFOPLIST_FILE = FreshAir/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -475,7 +570,6 @@
 				INFOPLIST_FILE = FreshAir/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
