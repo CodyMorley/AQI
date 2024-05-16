@@ -26,4 +26,5 @@ extension AirData {
                                      iaqi: IAQI.mockIAQI,
                                      time: TimeInfo.mockTimeInfo,
                                      forecast: Forecast.mockForecast)
+    
 }
