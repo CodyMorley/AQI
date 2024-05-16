@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct AirData: Codable {
     let aqi: Int
     let idx: Int

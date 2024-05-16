@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct DailyForecast: Codable {
     let avg: Int
     let day: String

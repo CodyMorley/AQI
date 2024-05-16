@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct Attribution: Codable {
     let url: String
     let name: String

@@ -5,18 +5,20 @@
 //  Created by Cody Morley on 5/14/24.
 //
 
-import Foundation
+import Combine
 import CoreLocation
+import Foundation
 
 protocol AirQualityDataManaging {
-    var data: AirData? { get set }
+    var publisher: CurrentValueSubject<AirData?, Never> { get }
 }
 
 class AirQualityDataManager: NSObject, AirQualityDataManaging {
     private let api = AirDataFetcher()
     private let locationManager = CLLocationManager()
-    var data: AirData? = nil
-    var location: CLLocation?
+    private(set) var data: AirData? = nil
+    private(set) var location: CLLocation?
+    var publisher = CurrentValueSubject<AirData?, Never>(nil)
     
     override init() {
         super.init()
@@ -30,7 +32,11 @@ class AirQualityDataManager: NSObject, AirQualityDataManaging {
     func fetchAirData() async {
         guard let location else { return }
         do {
-            data = try await api.fetchAirData(location: location)
+            let recieved = try await api.fetchAirData(location: location)
+            DispatchQueue.main.async {
+                self.data = recieved
+                self.publisher.send(recieved)
+            }
         } catch {
             NSLog("\(error.localizedDescription)")
             NSLog("\(error)")

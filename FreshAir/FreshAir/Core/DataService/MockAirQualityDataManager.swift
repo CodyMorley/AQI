@@ -5,12 +5,9 @@
 //  Created by Cody Morley on 5/15/24.
 //
 
+import Combine
 import Foundation
 
 class MockAirQualityDataManager: AirQualityDataManaging {
-    var data: AirData?
-    
-    init(data: AirData? = AirData.mockAirData) {
-        self.data = data
-    }
+    var publisher = CurrentValueSubject<AirData?, Never>(AirData.mockAirData)
 }

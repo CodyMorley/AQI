@@ -28,6 +28,7 @@ struct AirDataFetcher {
         guard let url = try? getURL(coords: location.coordinate) else {
             throw DataFetcherError.badURL
         }
+        print(url.absoluteString)
         
         guard let (data, _) = try? await URLSession.shared.data(from: url) else {
             let error = DataFetcherError.noData
@@ -36,8 +37,8 @@ struct AirDataFetcher {
         }
         
         do {
-            let dict = try JSONDecoder().decode([String : AirData].self, from: data)
-            if let airData = dict["data"] {
+            let result = try JSONDecoder().decode(NetworkResult.self, from: data)
+            if let airData = result.data {
                 return airData
             } else {
                 throw DataFetcherError.badData
@@ -50,11 +51,11 @@ struct AirDataFetcher {
     private func getURL(coords: CLLocationCoordinate2D) throws -> URL {
         let latLonString = "\(String(coords.latitude));\(String(coords.longitude))/"
         let key = "b8b4e0621b1d8be4adb4427bc8ed645e342e74ea"
-        let path = "/api/v1/geo:"
+        let path = "/feed/geo:"
         
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "api.aqicn.org"
+        components.host = "api.waqi.info"
         components.path = path.appending(latLonString)
         components.queryItems = [URLQueryItem(name: "token", value: key)]
         

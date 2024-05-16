@@ -10,21 +10,25 @@
 // MARK: CREATE PROGRESSVIEW ALT FOR ASYNC WAIT TIME
 // MARK: USE COMBINE TO UPDATE VIEWCONTROLLER WHEN DATA MANAGER HAS DATA
 
+import Combine
 import UIKit
 import SwiftUI
 
 class ViewController: UIViewController {
+    private var activityIndicator: UIActivityIndicatorView?
     private var header: CityHeaderView?
     private var today: TodayAirQualityView?
     private var yesterday: YesterdayAirQualityView?
     private var tomorrow: ForecastAirQualityView?
     private var dataManager: AirQualityDataManaging
+    private var cancelBag = Set<AnyCancellable>()
     private let headerHeight: CGFloat = 128
     private let spaceConstant: CGFloat = 116
     
     init(dataManager: AirQualityDataManaging = AirQualityDataManager()) {
         self.dataManager = dataManager
         super.init(nibName: nil, bundle: nil)
+        subscribeToData()
     }
     
     required init?(coder: NSCoder) {
@@ -33,32 +37,52 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSubviews()
+        configureSubviews(withData: dataManager.publisher.value)
     }
     
-    private func configureSubviews() {
-        configureBackground()
-        createAndAddSubViews()
-        activateConstraints()
-    }
     
     private func activateConstraints() {
-        guard let header, let today, let yesterday, let tomorrow else { return }
+        if let header, let today, let yesterday, let tomorrow {
+            NSLayoutConstraint.activate([
+                header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                header.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                header.heightAnchor.constraint(equalToConstant: headerHeight),
+                today.topAnchor.constraint(equalTo: header.bottomAnchor, constant: spaceConstant),
+                today.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                today.heightAnchor.constraint(equalToConstant: 48),
+                yesterday.topAnchor.constraint(equalTo: today.bottomAnchor, constant: spaceConstant),
+                yesterday.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                yesterday.heightAnchor.constraint(equalToConstant: 48),
+                tomorrow.topAnchor.constraint(equalTo: yesterday.bottomAnchor, constant: spaceConstant),
+                tomorrow.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                tomorrow.heightAnchor.constraint(equalToConstant: 48)
+            ])
+        } else if let activityIndicator {
+            NSLayoutConstraint.activate([
+                activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
+        }
+    }
+    
+    private func addStateSubviews() {
+        if let header, let today, let tomorrow, let yesterday {
+            view.addSubview(header)
+            view.addSubview(today)
+            view.addSubview(yesterday)
+            view.addSubview(tomorrow)
+        } else if let activityIndicator {
+            view.addSubview(activityIndicator)
+        }
+    }
+    
+    private func configureActivityIndicator() {
+        self.activityIndicator = UIActivityIndicatorView(style: .large)
         
-        NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            header.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            header.heightAnchor.constraint(equalToConstant: headerHeight),
-            today.topAnchor.constraint(equalTo: header.bottomAnchor, constant: spaceConstant),
-            today.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            today.heightAnchor.constraint(equalToConstant: 48),
-            yesterday.topAnchor.constraint(equalTo: today.bottomAnchor, constant: spaceConstant),
-            yesterday.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            yesterday.heightAnchor.constraint(equalToConstant: 48),
-            tomorrow.topAnchor.constraint(equalTo: yesterday.bottomAnchor, constant: spaceConstant),
-            tomorrow.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tomorrow.heightAnchor.constraint(equalToConstant: 48)
-        ])
+        guard let activityIndicator else { return }
+        activityIndicator.color = .white
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configureBackground() {
@@ -72,32 +96,61 @@ class ViewController: UIViewController {
         background.layer.zPosition = -2
     }
     
-    private func createAndAddSubViews() {
-        self.header = CityHeaderView(station: "Los Angeles, CA",
-                                     lat: "\(AirData.mockAirData.city.geo[0])",
-                                     long: "\(AirData.mockAirData.city.geo[1])")
-        self.today = TodayAirQualityView(aqi: String(AirData.mockAirData.aqi),
-                                         description: getTextDescription(for: AirData.mockAirData.aqi),
-                                         color: getAssociatedColor(for: AirData.mockAirData.aqi))
-        self.yesterday = YesterdayAirQualityView(aqi: "49",
-                                                 description: getTextDescription(for: 49),
-                                                 color: getAssociatedColor(for: 49))
-        self.tomorrow = ForecastAirQualityView(aqi: "21",
-                                               description: getTextDescription(for: 21),
-                                               color: getAssociatedColor(for: 21))
-        header?.translatesAutoresizingMaskIntoConstraints = false
-        today?.translatesAutoresizingMaskIntoConstraints = false
-        yesterday?.translatesAutoresizingMaskIntoConstraints = false
-        tomorrow?.translatesAutoresizingMaskIntoConstraints = false
-        
-        if let header, let today, let tomorrow, let yesterday {
-            view.addSubview(header)
-            view.addSubview(today)
-            view.addSubview(yesterday)
-            view.addSubview(tomorrow)
-        }
+    private func configureSubviews(withData data: AirData?) {
+        configureBackground()
+        createAndAddSubviews(withData: data)
+        activateConstraints()
     }
     
+    private func createAndAddSubviews(withData data: AirData?) {
+        guard let data else {
+            configureActivityIndicator()
+            header?.removeFromSuperview()
+            header = nil
+            today?.removeFromSuperview()
+            today = nil
+            yesterday?.removeFromSuperview()
+            yesterday = nil
+            tomorrow?.removeFromSuperview()
+            tomorrow = nil
+            addStateSubviews()
+            return
+        }
+        header = CityHeaderView(station: data.city.name,
+                                lat: "\(data.city.geo[0])",
+                                long: "\(data.city.geo[1])")
+        header?.translatesAutoresizingMaskIntoConstraints = false
+        today = TodayAirQualityView(aqi: "\(data.aqi)",
+                                    description: getTextDescription(for: data.aqi),
+                                    color: getAssociatedColor(for: data.aqi))
+        today?.translatesAutoresizingMaskIntoConstraints = false
+        yesterday = YesterdayAirQualityView(aqi: "\(data.forecast.daily["pm25"]?[0].avg ?? 00)",
+                                            description: getTextDescription(for: data.forecast.daily["pm25"]?[0].avg ?? -1),
+                                            color: getAssociatedColor(for: data.forecast.daily["pm25"]?[0].avg ?? -1))
+        yesterday?.translatesAutoresizingMaskIntoConstraints = false
+        tomorrow = ForecastAirQualityView(aqi: "\(data.forecast.daily["pm25"]?[2].avg ?? 00)",
+                                          description: getTextDescription(for: data.forecast.daily["pm25"]?[2].avg ?? -1),
+                                          color: getAssociatedColor(for: data.forecast.daily["pm25"]?[2].avg ?? -1))
+        tomorrow?.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator?.removeFromSuperview()
+        activityIndicator = nil
+        addStateSubviews()
+    }
+    
+    private func subscribeToData() {
+        dataManager.publisher.receive(on: RunLoop.main)
+            .sink { [weak self] data in
+                guard let self else { return }
+                self.updateViews(data)
+            }
+            .store(in: &cancelBag)
+    }
+    
+    private func updateViews(_ data: AirData?) {
+        guard let data = data else { return }
+        configureSubviews(withData: data)
+        view.setNeedsDisplay()
+    }
     
     private func getTextDescription(for aqi: Int) -> String {
         switch aqi {

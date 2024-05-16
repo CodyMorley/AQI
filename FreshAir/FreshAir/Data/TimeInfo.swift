@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct TimeInfo: Codable {
     let s: String
     let tz: String

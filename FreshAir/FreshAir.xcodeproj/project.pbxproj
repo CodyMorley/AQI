@@ -12,6 +12,7 @@
 		0417F5172BF5C7B800EEFF53 /* ForecastAirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5162BF5C7B800EEFF53 /* ForecastAirQualityView.swift */; };
 		0417F5192BF5C7D400EEFF53 /* YesterdayAirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5182BF5C7D400EEFF53 /* YesterdayAirQualityView.swift */; };
 		0417F51B2BF5CC0C00EEFF53 /* CityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F51A2BF5CC0C00EEFF53 /* CityHeaderView.swift */; };
+		0417F51E2BF6BB1800EEFF53 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F51D2BF6BB1800EEFF53 /* NetworkResult.swift */; };
 		04F3E0B52BF3F4FC00C63A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */; };
 		04F3E0B72BF3F4FC00C63A67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */; };
 		04F3E0B92BF3F4FC00C63A67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B82BF3F4FC00C63A67 /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		0417F5162BF5C7B800EEFF53 /* ForecastAirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastAirQualityView.swift; sourceTree = "<group>"; };
 		0417F5182BF5C7D400EEFF53 /* YesterdayAirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayAirQualityView.swift; sourceTree = "<group>"; };
 		0417F51A2BF5CC0C00EEFF53 /* CityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHeaderView.swift; sourceTree = "<group>"; };
+		0417F51D2BF6BB1800EEFF53 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		04F3E0B12BF3F4FC00C63A67 /* FreshAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				04F3E0F82BF4448300C63A67 /* Forecast.swift */,
 				04F3E0F42BF4436800C63A67 /* IAQI.swift */,
 				04F3E0F62BF4442A00C63A67 /* TimeInfo.swift */,
+				0417F51D2BF6BB1800EEFF53 /* NetworkResult.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				0417F5172BF5C7B800EEFF53 /* ForecastAirQualityView.swift in Sources */,
 				04F3E0B92BF3F4FC00C63A67 /* ViewController.swift in Sources */,
 				0417F5192BF5C7D400EEFF53 /* YesterdayAirQualityView.swift in Sources */,
+				0417F51E2BF6BB1800EEFF53 /* NetworkResult.swift in Sources */,
 				04F3E0F52BF4436800C63A67 /* IAQI.swift in Sources */,
 				04F3E0EF2BF442A900C63A67 /* AirData.swift in Sources */,
 				0417F5152BF5C79600EEFF53 /* TodayAirQualityView.swift in Sources */,
@@ -569,6 +573,8 @@
 				DEVELOPMENT_TEAM = H627294WQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FreshAir/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"Fresh Air needs access to your location to measure the nearby air quality. This information is not retained .\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Fresh Air needs access to your location to measure the nearby air quality. This information is not retained .\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -596,6 +602,8 @@
 				DEVELOPMENT_TEAM = H627294WQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FreshAir/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"Fresh Air needs access to your location to measure the nearby air quality. This information is not retained .\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Fresh Air needs access to your location to measure the nearby air quality. This information is not retained .\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
