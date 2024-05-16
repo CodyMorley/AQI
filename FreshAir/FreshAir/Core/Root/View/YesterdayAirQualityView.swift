@@ -37,7 +37,6 @@ class YesterdayAirQualityView: UIView {
         stack = UIStackView(arrangedSubviews: [headerLabel, valueLabel, descriptionLabel])
         stack.axis = .vertical
         stack.alignment = .center
-        
         stack.spacing = 4
         stack.translatesAutoresizingMaskIntoConstraints = false
         
