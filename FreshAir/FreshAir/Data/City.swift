@@ -13,3 +13,10 @@ struct City: Codable {
     let url: String
     let location: String
 }
+
+extension City {
+    static let mockCity = City(geo: [34.06653, -118.22676],
+                               name: "Los Angeles-North Main Street",
+                               url: "https://aqicn.org/city/losangeles/los-angeles-north-main-street",
+                               location: "")
+}

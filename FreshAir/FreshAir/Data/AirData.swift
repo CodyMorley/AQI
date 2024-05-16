@@ -16,3 +16,14 @@ struct AirData: Codable {
     let time: TimeInfo
     let forecast: Forecast
 }
+
+extension AirData {
+    static let mockAirData = AirData(aqi: 44,
+                                     idx: 243,
+                                     attributions: Attribution.mockAttributions,
+                                     city: City.mockCity,
+                                     dominentpol: "pm25",
+                                     iaqi: IAQI.mockIAQI,
+                                     time: TimeInfo.mockTimeInfo,
+                                     forecast: Forecast.mockForecast)
+}
