@@ -9,98 +9,61 @@ import SwiftUI
 import UIKit
 
 class CityHeaderView: UIView {
-    
-    private let station: String
-    private let latString: String
-    private let longString: String
     private let cityLabel: UILabel
     private let latLabel: UILabel
     private let longLabel: UILabel
     private let stack: UIStackView
     
-    
-
-    init(frame: CGRect, station: String, lat: String, long: String) {
-        self.station = station
-        latString = lat
-        longString = long
+    init(station: String, lat: String, long: String) {
         cityLabel = UILabel()
-        latLabel = UILabel()
-        longLabel = UILabel()
-        stack = UIStackView(frame: CGRect(x: frame.midX,
-                                          y: frame.midY,
-                                          width: frame.width,
-                                          height: frame.height))
+        cityLabel.text = station
+        cityLabel.font = UIFont.systemFont(ofSize: 36, weight:.light)
+        cityLabel.textAlignment = .center
+        cityLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        super.init(frame: frame)
+        latLabel = UILabel()
+        latLabel.text = "Latitude: \(lat)"
+        latLabel.font = UIFont.systemFont(ofSize: 14, weight:.light)
+        latLabel.textAlignment = .center
+        latLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        longLabel = UILabel()
+        longLabel.text = "Longitude: \(long)"
+        longLabel.font = UIFont.systemFont(ofSize: 14, weight:.light)
+        longLabel.textAlignment = .center
+        longLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        stack = UIStackView(arrangedSubviews: [cityLabel, latLabel, longLabel])
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.spacing = 4
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        super.init(frame:.zero)
         
         clipsToBounds = true
         setup()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("NSCoder not implemented.")
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setup() {
         backgroundColor = .clear
-        configureLabels()
-        configureStack()
-        addSubviewsToStack()
-    }
-    
-    private func addSubviewsToStack() {
-        stack.addArrangedSubview(cityLabel)
-        stack.addArrangedSubview(latLabel)
-        stack.addArrangedSubview(longLabel)
-    }
-    
-    
-    private func configureCityLabel() {
-        cityLabel.text = "\(station)"
-        cityLabel.font = UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.light)
-        cityLabel.textAlignment = .center
-        cityLabel.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func configureLabels() {
-        configureCityLabel()
-        configureLatLabel()
-        configureLongLabel()
-    }
-    
-    private func configureLatLabel() {
-        latLabel.text = "Latitude: \(latString)"
-        latLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
-        latLabel.textAlignment = .center
-        latLabel.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func configureLongLabel() {
-        longLabel.text = "Longitude: \(longString)"
-        longLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
-        longLabel.textAlignment = .center
-        longLabel.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func configureStack() {
-        stack.axis = .vertical
-        stack.spacing = 4
-        stack.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stack)
-        stack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        stack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        stack.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            stack.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stack.centerYAnchor.constraint(equalTo: centerYAnchor),
+            stack.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
     }
-
 }
 
 class CityHeader_PreviewViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
-        self.view = CityHeaderView(frame: CGRect(origin: .zero,
-                                                 size: CGSize(width: 100,
-                                                              height: 100)),
-                                   station: "Los Angeles, CA",
+        self.view = CityHeaderView(station: "Los Angeles, CA",
                                    lat: "\(AirData.mockAirData.city.geo[0])",
                                    long: "\(AirData.mockAirData.city.geo[1])")
     }
