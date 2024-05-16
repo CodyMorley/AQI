@@ -11,6 +11,7 @@
 		0417F5152BF5C79600EEFF53 /* TodayAirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5142BF5C79600EEFF53 /* TodayAirQualityView.swift */; };
 		0417F5172BF5C7B800EEFF53 /* ForecastAirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5162BF5C7B800EEFF53 /* ForecastAirQualityView.swift */; };
 		0417F5192BF5C7D400EEFF53 /* YesterdayAirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5182BF5C7D400EEFF53 /* YesterdayAirQualityView.swift */; };
+		0417F51B2BF5CC0C00EEFF53 /* CityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F51A2BF5CC0C00EEFF53 /* CityHeaderView.swift */; };
 		04F3E0B52BF3F4FC00C63A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */; };
 		04F3E0B72BF3F4FC00C63A67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */; };
 		04F3E0B92BF3F4FC00C63A67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B82BF3F4FC00C63A67 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		0417F5142BF5C79600EEFF53 /* TodayAirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAirQualityView.swift; sourceTree = "<group>"; };
 		0417F5162BF5C7B800EEFF53 /* ForecastAirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastAirQualityView.swift; sourceTree = "<group>"; };
 		0417F5182BF5C7D400EEFF53 /* YesterdayAirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayAirQualityView.swift; sourceTree = "<group>"; };
+		0417F51A2BF5CC0C00EEFF53 /* CityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHeaderView.swift; sourceTree = "<group>"; };
 		04F3E0B12BF3F4FC00C63A67 /* FreshAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				0417F5142BF5C79600EEFF53 /* TodayAirQualityView.swift */,
 				0417F5162BF5C7B800EEFF53 /* ForecastAirQualityView.swift */,
 				0417F5182BF5C7D400EEFF53 /* YesterdayAirQualityView.swift */,
+				0417F51A2BF5CC0C00EEFF53 /* CityHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				04F3E1032BF4869B00C63A67 /* AirQualityDataManager.swift in Sources */,
 				04F3E0FB2BF444AE00C63A67 /* DailyForecast.swift in Sources */,
 				04F3E0F92BF4448300C63A67 /* Forecast.swift in Sources */,
+				0417F51B2BF5CC0C00EEFF53 /* CityHeaderView.swift in Sources */,
 				04F3E0FE2BF4472000C63A67 /* AirDataFetcher.swift in Sources */,
 				04F3E0F12BF442DC00C63A67 /* Attribution.swift in Sources */,
 				04F3E0F72BF4442A00C63A67 /* TimeInfo.swift in Sources */,
