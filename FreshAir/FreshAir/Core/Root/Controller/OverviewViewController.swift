@@ -95,22 +95,6 @@ class OverviewViewController: UIViewController {
         background.layer.zPosition = -2
     }
     
-    private func configureButton() {
-        let changeLocationButton = UIButton()
-        changeLocationButton.setTitle("Change Location", for: .normal)
-        changeLocationButton.backgroundColor = .blue
-        changeLocationButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        changeLocationButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(changeLocationButton)
-        
-        NSLayoutConstraint.activate([
-            changeLocationButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            changeLocationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
-        ])
-        
-    }
-    
     private func configureDataSubviews(withData data: AirData) {
         header = CityHeaderView(station: data.city.name,
                                 lat: "\(data.city.geo[0])",
@@ -130,7 +114,6 @@ class OverviewViewController: UIViewController {
     
     func configureSubviewState(withData data: AirData?) {
         configureBackground()
-        //configureButton()
         createAndAddStateSubviews(withData: data)
         activateConstraints()
     }
@@ -170,12 +153,6 @@ class OverviewViewController: UIViewController {
         view.setNeedsDisplay()
     }
     
-    @objc func buttonTapped() {
-        let popoverVC = ResetLocationViewController(dataManager: dataManager)
-        popoverVC.modalPresentationStyle = .formSheet
-        popoverVC.modalTransitionStyle = .coverVertical
-        self.present(popoverVC, animated: true, completion: nil)
-    }
 }
 
 #Preview {
