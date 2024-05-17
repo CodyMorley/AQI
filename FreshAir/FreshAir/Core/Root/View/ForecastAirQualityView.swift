@@ -7,12 +7,14 @@
 
 import UIKit
 
+
 class ForecastAirQualityView: UIView {
     private let descriptionLabel: UILabel
     private let headerLabel: UILabel
     private let valueLabel: UILabel
     private let stack: UIStackView
 
+    
     init(config: AQIViewConfiguration) {
         headerLabel = UILabel()
         headerLabel.text = "Tomorrow's Forecast:"
@@ -48,6 +50,7 @@ class ForecastAirQualityView: UIView {
         fatalError("NSCoder not implemented.")
     }
     
+    
     private func setup() {
         addSubview(stack)
         NSLayoutConstraint.activate([
@@ -65,6 +68,7 @@ class ForecastAirQualityView_PreviewViewController: UIViewController {
         self.view = ForecastAirQualityView(config: AQIViewConfiguration(29))
     }
 }
+
 
 #Preview {
     YesterdayAirQualityView_PreviewViewController()

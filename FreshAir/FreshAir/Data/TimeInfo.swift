@@ -15,6 +15,7 @@ struct TimeInfo: Codable {
     let iso: String
 }
 
+
 extension TimeInfo {
     static let mockTimeInfo = TimeInfo(s: "2024-05-14 16:00:00",
                                        tz: "-07:00", v: 1715702400,

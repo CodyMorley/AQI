@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct AirData: Codable {
     let aqi: Int
     let idx: Int
@@ -17,6 +18,7 @@ struct AirData: Codable {
     let time: TimeInfo
     let forecast: Forecast
 }
+
 
 extension AirData {
     static let mockAirData = AirData(aqi: 44,

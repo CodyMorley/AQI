@@ -8,11 +8,13 @@
 import SwiftUI
 import UIKit
 
+
 class CityHeaderView: UIView {
     private let cityLabel: UILabel
     private let latLabel: UILabel
     private let longLabel: UILabel
     private let stack: UIStackView
+    
     
     init(station: String, lat: String, long: String) {
         cityLabel = UILabel()
@@ -51,6 +53,7 @@ class CityHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     private func setup() {
         backgroundColor = .clear
         addSubview(stack)
@@ -63,6 +66,7 @@ class CityHeaderView: UIView {
     }
 }
 
+
 class CityHeader_PreviewViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.view = CityHeaderView(station: "Los Angeles, CA",
@@ -70,6 +74,7 @@ class CityHeader_PreviewViewController: UIViewController {
                                    long: "\(AirData.mockAirData.city.geo[1])")
     }
 }
+
 
 #Preview {
     CityHeader_PreviewViewController()

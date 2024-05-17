@@ -14,6 +14,7 @@ import Combine
 import UIKit
 import SwiftUI
 
+
 class OverviewViewController: UIViewController {
     private(set) var activityIndicator: UIActivityIndicatorView?
     private(set) var header: CityHeaderView?
@@ -26,6 +27,7 @@ class OverviewViewController: UIViewController {
     private let headerHeight: CGFloat = 152
     private let spaceConstant: CGFloat = 108
     
+    
     init(dataManager: AirQualityDataManaging = AirQualityDataManager()) {
         self.dataManager = dataManager
         super.init(nibName: nil, bundle: nil)
@@ -36,11 +38,11 @@ class OverviewViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviewState(withData: dataManager.publisher.value)
     }
-    
     
     private func activateConstraints() {
         if let header, let today, let yesterday, let tomorrow {

@@ -7,10 +7,12 @@
 
 import UIKit
 
+
 struct AQIViewConfiguration {
     let aqi: String
     let color: UIColor
     let qualityDescription: String
+    
     
     init(_ value: Int) {
         self.aqi = String(value)

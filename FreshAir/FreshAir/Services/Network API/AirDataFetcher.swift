@@ -8,6 +8,7 @@
 import CoreLocation
 import Foundation
 
+
 protocol AirDataFetching {
     func fetchAirData(location: CLLocation) async throws -> AirData
 }
@@ -29,8 +30,10 @@ enum DataFetcherError: Error {
     }
 }
 
+
 class MockAirDataFetcher: AirDataFetching {
     var shouldThrowError: Bool = false
+    
     
     func fetchAirData(location: CLLocation) async throws -> AirData {
         if shouldThrowError {
@@ -40,6 +43,7 @@ class MockAirDataFetcher: AirDataFetching {
         
     }
 }
+
 
 struct AirDataFetcher: AirDataFetching {
     func fetchAirData(location: CLLocation) async throws -> AirData {

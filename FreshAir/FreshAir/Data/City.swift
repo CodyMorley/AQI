@@ -15,6 +15,7 @@ struct City: Codable {
     let location: String
 }
 
+
 extension City {
     static let mockCity = City(geo: [34.06653, -118.22676],
                                name: "Los Angeles-North Main Street",

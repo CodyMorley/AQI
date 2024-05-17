@@ -31,6 +31,7 @@ class AirQualityDataManager: NSObject, AirQualityDataManaging {
     private(set) var location: CLLocation?
     var publisher = CurrentValueSubject<AirData?, Never>(nil)
     
+    
     init(api: AirDataFetching = AirDataFetcher()) {
         self.api = api
         super.init()
@@ -39,6 +40,7 @@ class AirQualityDataManager: NSObject, AirQualityDataManaging {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
+    
     
     @MainActor
     func fetchAirData() async {

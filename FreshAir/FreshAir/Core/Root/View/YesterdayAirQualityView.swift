@@ -7,11 +7,13 @@
 
 import UIKit
 
+
 class YesterdayAirQualityView: UIView {
     private let descriptionLabel: UILabel
     private let headerLabel: UILabel
     private let valueLabel: UILabel
     private let stack: UIStackView
+    
     
     init(config: AQIViewConfiguration) {
         headerLabel = UILabel()

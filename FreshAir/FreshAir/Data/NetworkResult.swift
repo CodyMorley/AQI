@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct NetworkResult: Codable {
     let status: String
     let data: AirData?

@@ -14,6 +14,7 @@ struct Attribution: Codable {
     let logo: String?
 }
 
+
 extension Attribution {
     static let mockAttribution: Attribution = Attribution(url: "http://www.arb.ca.gov/",
                                                           name: "CARB - California Air Resources Board",

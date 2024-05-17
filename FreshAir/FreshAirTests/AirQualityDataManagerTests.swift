@@ -26,7 +26,6 @@ final class AirQualityDataManagerTests: XCTestCase {
     }
     
     func testFetchAirDataSuccess() async {
-        // Given
         let expectation = XCTestExpectation(description: "Publisher should receive data")
         var receivedData: AirData? = nil
         let cancellable = dataManager.publisher.sink { data in
@@ -36,11 +35,9 @@ final class AirQualityDataManagerTests: XCTestCase {
             }
         }
         
-        // When
         dataManager.setLocationForTesting(location: CLLocation(latitude: 37.7749, longitude: -122.4194))
         await dataManager.fetchAirData()
         
-        // Then
         await fulfillment(of: [expectation], timeout: 2.0)
         XCTAssertNotNil(receivedData)
         XCTAssertEqual(receivedData?.time.v, AirData.mockAirData.time.v)
@@ -48,7 +45,6 @@ final class AirQualityDataManagerTests: XCTestCase {
     }
     
     func testFetchAirDataFailure() async {
-        // Given
         let expectation = XCTestExpectation(description: "Publisher should not receive data")
         mockFetcher.shouldThrowError = true
         var receivedData: AirData? = nil
@@ -56,11 +52,9 @@ final class AirQualityDataManagerTests: XCTestCase {
             receivedData = data
         }
         
-        // When
         dataManager.setLocationForTesting(location: CLLocation(latitude: 37.7749, longitude: -122.4194))
         await dataManager.fetchAirData()
         
-        // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             XCTAssertNil(receivedData)
             expectation.fulfill()
@@ -70,10 +64,7 @@ final class AirQualityDataManagerTests: XCTestCase {
     }
     
     func testPublisherInitiallyNil() {
-        // Given
         let initialData = dataManager.publisher.value
-        
-        // Then
         XCTAssertNil(initialData)
     }
 }

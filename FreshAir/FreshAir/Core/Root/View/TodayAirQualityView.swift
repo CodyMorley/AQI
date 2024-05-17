@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+
 class TodayAirQualityView: UIView {
     private let stack: UIStackView
     private let aqiLabel: UILabel
@@ -56,11 +57,13 @@ class TodayAirQualityView: UIView {
     }
 }
 
+
 class TodayAirQualityView_PreviewViewController: OverviewViewController {
     override func viewDidLoad() {
         self.view = TodayAirQualityView(config: AQIViewConfiguration(45))
     }
 }
+
 
 #Preview {
     TodayAirQualityView_PreviewViewController()

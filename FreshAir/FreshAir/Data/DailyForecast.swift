@@ -15,6 +15,7 @@ struct DailyForecast: Codable {
     let min: Int
 }
 
+
 extension DailyForecast {
     static let mockDailyForecast = DailyForecast(avg: 13, day: "2024-05-12", max: 54, min: 1)
 }
