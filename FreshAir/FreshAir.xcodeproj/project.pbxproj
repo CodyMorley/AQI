@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0417F50F2BF5A01800EEFF53 /* MockAirQualityDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F50E2BF5A01800EEFF53 /* MockAirQualityDataManager.swift */; };
 		0417F5152BF5C79600EEFF53 /* TodayAirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5142BF5C79600EEFF53 /* TodayAirQualityView.swift */; };
 		0417F5172BF5C7B800EEFF53 /* ForecastAirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5162BF5C7B800EEFF53 /* ForecastAirQualityView.swift */; };
 		0417F5192BF5C7D400EEFF53 /* YesterdayAirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5182BF5C7D400EEFF53 /* YesterdayAirQualityView.swift */; };
@@ -16,6 +15,8 @@
 		0417F5202BF6D60000EEFF53 /* ViewConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F51F2BF6D60000EEFF53 /* ViewConfigurationManager.swift */; };
 		0417F5232BF6D69500EEFF53 /* AQIViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5222BF6D69500EEFF53 /* AQIViewConfiguration.swift */; };
 		0417F52B2BF6E30900EEFF53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E0BF2BF3F4FD00C63A67 /* LaunchScreen.storyboard */; };
+		0417F52D2BF7160100EEFF53 /* AirQualityDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F52C2BF7160100EEFF53 /* AirQualityDataManagerTests.swift */; };
+		0417F52F2BF7221100EEFF53 /* OverviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F52E2BF7221100EEFF53 /* OverviewViewControllerTests.swift */; };
 		04F3E0B52BF3F4FC00C63A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */; };
 		04F3E0B72BF3F4FC00C63A67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */; };
 		04F3E0B92BF3F4FC00C63A67 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B82BF3F4FC00C63A67 /* OverviewViewController.swift */; };
@@ -53,7 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0417F50E2BF5A01800EEFF53 /* MockAirQualityDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAirQualityDataManager.swift; sourceTree = "<group>"; };
 		0417F5142BF5C79600EEFF53 /* TodayAirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAirQualityView.swift; sourceTree = "<group>"; };
 		0417F5162BF5C7B800EEFF53 /* ForecastAirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastAirQualityView.swift; sourceTree = "<group>"; };
 		0417F5182BF5C7D400EEFF53 /* YesterdayAirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayAirQualityView.swift; sourceTree = "<group>"; };
@@ -61,6 +61,8 @@
 		0417F51D2BF6BB1800EEFF53 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		0417F51F2BF6D60000EEFF53 /* ViewConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfigurationManager.swift; sourceTree = "<group>"; };
 		0417F5222BF6D69500EEFF53 /* AQIViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIViewConfiguration.swift; sourceTree = "<group>"; };
+		0417F52C2BF7160100EEFF53 /* AirQualityDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityDataManagerTests.swift; sourceTree = "<group>"; };
+		0417F52E2BF7221100EEFF53 /* OverviewViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewControllerTests.swift; sourceTree = "<group>"; };
 		04F3E0B12BF3F4FC00C63A67 /* FreshAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				04F3E0CB2BF3F4FD00C63A67 /* FreshAirTests.swift */,
+				0417F52E2BF7221100EEFF53 /* OverviewViewControllerTests.swift */,
+				0417F52C2BF7160100EEFF53 /* AirQualityDataManagerTests.swift */,
 			);
 			path = FreshAirTests;
 			sourceTree = "<group>";
@@ -259,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				04F3E1022BF4869B00C63A67 /* AirQualityDataManager.swift */,
-				0417F50E2BF5A01800EEFF53 /* MockAirQualityDataManager.swift */,
 			);
 			path = DataService;
 			sourceTree = "<group>";
@@ -411,7 +414,6 @@
 				04F3E0FE2BF4472000C63A67 /* AirDataFetcher.swift in Sources */,
 				04F3E0F12BF442DC00C63A67 /* Attribution.swift in Sources */,
 				04F3E0F72BF4442A00C63A67 /* TimeInfo.swift in Sources */,
-				0417F50F2BF5A01800EEFF53 /* MockAirQualityDataManager.swift in Sources */,
 				04F3E0B52BF3F4FC00C63A67 /* AppDelegate.swift in Sources */,
 				04F3E0B72BF3F4FC00C63A67 /* SceneDelegate.swift in Sources */,
 				04F3E0F32BF4432D00C63A67 /* City.swift in Sources */,
@@ -422,6 +424,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0417F52D2BF7160100EEFF53 /* AirQualityDataManagerTests.swift in Sources */,
+				0417F52F2BF7221100EEFF53 /* OverviewViewControllerTests.swift in Sources */,
 				04F3E0CC2BF3F4FD00C63A67 /* FreshAirTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

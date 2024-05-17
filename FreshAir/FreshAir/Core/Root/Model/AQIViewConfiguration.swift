@@ -16,7 +16,7 @@ struct AQIViewConfiguration {
         self.aqi = String(value)
         
         switch value {
-        case Int.min...50:
+        case 0...50:
             self.color = UIColor.green
         case 51...100:
             self.color = UIColor.yellow

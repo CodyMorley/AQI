@@ -9,18 +9,30 @@ import Combine
 import CoreLocation
 import Foundation
 
+
 protocol AirQualityDataManaging {
     var publisher: CurrentValueSubject<AirData?, Never> { get }
 }
 
+
+class MockAirQualityDataManager: AirQualityDataManaging {
+    var publisher = CurrentValueSubject<AirData?, Never>(nil)
+    
+    func publish() {
+        publisher.send(AirData.mockAirData)
+    }
+}
+
+
 class AirQualityDataManager: NSObject, AirQualityDataManaging {
-    private let api = AirDataFetcher()
+    private let api: AirDataFetching
     private let locationManager = CLLocationManager()
     private(set) var data: AirData? = nil
     private(set) var location: CLLocation?
     var publisher = CurrentValueSubject<AirData?, Never>(nil)
     
-    override init() {
+    init(api: AirDataFetching = AirDataFetcher()) {
+        self.api = api
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -42,7 +54,12 @@ class AirQualityDataManager: NSObject, AirQualityDataManaging {
             NSLog("\(error)")
         }
     }
+    
+    func setLocationForTesting(location: CLLocation) {
+        self.location = location
+    }
 }
+
 
 extension AirQualityDataManager: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

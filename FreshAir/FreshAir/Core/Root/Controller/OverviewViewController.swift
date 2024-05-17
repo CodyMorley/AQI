@@ -15,13 +15,14 @@ import UIKit
 import SwiftUI
 
 class OverviewViewController: UIViewController {
-    private var activityIndicator: UIActivityIndicatorView?
-    private var header: CityHeaderView?
-    private var today: TodayAirQualityView?
-    private var yesterday: YesterdayAirQualityView?
-    private var tomorrow: ForecastAirQualityView?
-    private var dataManager: AirQualityDataManaging
-    private var cancelBag = Set<AnyCancellable>()
+    private(set) var activityIndicator: UIActivityIndicatorView?
+    private(set) var header: CityHeaderView?
+    private(set) var today: TodayAirQualityView?
+    private(set) var yesterday: YesterdayAirQualityView?
+    private(set) var tomorrow: ForecastAirQualityView?
+    private(set) var dataManager: AirQualityDataManaging
+    private(set) var cancelBag = Set<AnyCancellable>()
+    private let configurationManager = ViewConfigurationManager()
     private let headerHeight: CGFloat = 152
     private let spaceConstant: CGFloat = 108
     
@@ -103,9 +104,9 @@ class OverviewViewController: UIViewController {
                                 long: "\(data.city.geo[1])")
         header?.translatesAutoresizingMaskIntoConstraints = false
         
-        let todayConfig = AQIViewConfiguration(data.aqi)
-        let yesterdayConfig = AQIViewConfiguration(data.forecast.daily["pm25"]?[0].avg ?? 00)
-        let tomorrowConfig = AQIViewConfiguration(data.forecast.daily["pm25"]?[2].avg ?? 00)
+        let todayConfig = configurationManager.getConfiguration(forAQI: data.aqi)
+        let yesterdayConfig = configurationManager.getConfiguration(forAQI: data.forecast.daily["pm25"]?[0].avg ?? 00)
+        let tomorrowConfig = configurationManager.getConfiguration(forAQI: data.forecast.daily["pm25"]?[2].avg ?? 00)
         today = TodayAirQualityView(config: todayConfig)
         today?.translatesAutoresizingMaskIntoConstraints = false
         yesterday = YesterdayAirQualityView(config: yesterdayConfig)
@@ -114,7 +115,7 @@ class OverviewViewController: UIViewController {
         tomorrow?.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func configureSubviewState(withData data: AirData?) {
+   func configureSubviewState(withData data: AirData?) {
         configureBackground()
         createAndAddStateSubviews(withData: data)
         activateConstraints()
@@ -149,7 +150,7 @@ class OverviewViewController: UIViewController {
             .store(in: &cancelBag)
     }
     
-    private func updateViews(_ data: AirData?) {
+    func updateViews(_ data: AirData?) {
         guard let data = data else { return }
         configureSubviewState(withData: data)
         view.setNeedsDisplay()

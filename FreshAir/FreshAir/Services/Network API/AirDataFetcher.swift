@@ -8,22 +8,40 @@
 import CoreLocation
 import Foundation
 
+protocol AirDataFetching {
+    func fetchAirData(location: CLLocation) async throws -> AirData
+}
 
-struct AirDataFetcher {
-    enum DataFetcherError: Error {
-        case badData
-        case badURL
-        case noData
-        
-        var localizedDescription: String {
-            switch self {
-            case .badData: "Could not find data in response hash table at key 'data'"
-            case .badURL: "Could not construct URL"
-            case .noData: "No data returned from host"
-            }
+
+enum DataFetcherError: Error {
+    case badData
+    case badURL
+    case noData
+    case testError
+    
+    var localizedDescription: String {
+        switch self {
+        case .badData: "Could not find data in response hash table at key 'data'"
+        case .badURL: "Could not construct URL"
+        case .noData: "No data returned from host"
+        case .testError: "Test"
         }
     }
+}
+
+class MockAirDataFetcher: AirDataFetching {
+    var shouldThrowError: Bool = false
     
+    func fetchAirData(location: CLLocation) async throws -> AirData {
+        if shouldThrowError {
+            throw DataFetcherError.testError
+        }
+        return AirData.mockAirData
+        
+    }
+}
+
+struct AirDataFetcher: AirDataFetching {
     func fetchAirData(location: CLLocation) async throws -> AirData {
         guard let url = try? getURL(coords: location.coordinate) else {
             throw DataFetcherError.badURL
