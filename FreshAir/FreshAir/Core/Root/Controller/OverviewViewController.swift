@@ -130,7 +130,7 @@ class OverviewViewController: UIViewController {
     
     func configureSubviewState(withData data: AirData?) {
         configureBackground()
-        configureButton()
+        //configureButton()
         createAndAddStateSubviews(withData: data)
         activateConstraints()
     }
@@ -172,8 +172,8 @@ class OverviewViewController: UIViewController {
     
     @objc func buttonTapped() {
         let popoverVC = ResetLocationViewController(dataManager: dataManager)
-        popoverVC.modalPresentationStyle = .overCurrentContext
-        popoverVC.modalTransitionStyle = .crossDissolve
+        popoverVC.modalPresentationStyle = .formSheet
+        popoverVC.modalTransitionStyle = .coverVertical
         self.present(popoverVC, animated: true, completion: nil)
     }
 }
