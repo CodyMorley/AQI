@@ -14,19 +14,19 @@ class TodayAirQualityView: UIView {
     private let aqiDescriptionLabel: UILabel
     
     
-    init(aqi: String, description: String, color: UIColor) {
+    init(config: AQIViewConfiguration) {
         aqiLabel = UILabel()
-        aqiLabel.text = aqi
+        aqiLabel.text = config.aqi
         aqiLabel.font = UIFont.monospacedSystemFont(ofSize: 84, weight: UIFont.Weight.bold)
         aqiLabel.textAlignment = .center
-        aqiLabel.textColor = color
+        aqiLabel.textColor = config.color
         aqiLabel.backgroundColor = .clear
         aqiLabel.translatesAutoresizingMaskIntoConstraints = false
         
         aqiDescriptionLabel = UILabel()
-        aqiDescriptionLabel.text = description
+        aqiDescriptionLabel.text = config.qualityDescription
         aqiDescriptionLabel.font = UIFont.monospacedSystemFont(ofSize: 14, weight: UIFont.Weight.bold)
-        aqiDescriptionLabel.textColor = color
+        aqiDescriptionLabel.textColor = config.color
         aqiDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         
@@ -56,11 +56,9 @@ class TodayAirQualityView: UIView {
     }
 }
 
-class TodayAirQualityView_PreviewViewController: ViewController {
+class TodayAirQualityView_PreviewViewController: OverviewViewController {
     override func viewDidLoad() {
-        self.view = TodayAirQualityView(aqi: "45",
-                                        description: "High Air Quality",
-                                        color: .green)
+        self.view = TodayAirQualityView(config: AQIViewConfiguration(45))
     }
 }
 

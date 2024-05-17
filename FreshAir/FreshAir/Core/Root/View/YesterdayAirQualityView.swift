@@ -13,7 +13,7 @@ class YesterdayAirQualityView: UIView {
     private let valueLabel: UILabel
     private let stack: UIStackView
     
-    init(aqi: String, description: String, color: UIColor) {
+    init(config: AQIViewConfiguration) {
         headerLabel = UILabel()
         headerLabel.text = "Compare to Yesterday:"
         headerLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)
@@ -21,7 +21,7 @@ class YesterdayAirQualityView: UIView {
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         valueLabel = UILabel()
-        valueLabel.text = aqi
+        valueLabel.text = config.aqi
         valueLabel.font = UIFont.monospacedSystemFont(ofSize: 84, weight: UIFont.Weight.bold)
         valueLabel.textColor = .green
         valueLabel.textAlignment = .center
@@ -29,9 +29,9 @@ class YesterdayAirQualityView: UIView {
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         
         descriptionLabel = UILabel()
-        descriptionLabel.text = description
+        descriptionLabel.text = config.qualityDescription
         descriptionLabel.font = UIFont.monospacedSystemFont(ofSize: 14, weight: UIFont.Weight.bold)
-        descriptionLabel.textColor = color
+        descriptionLabel.textColor = config.color
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         stack = UIStackView(arrangedSubviews: [headerLabel, valueLabel, descriptionLabel])
@@ -63,9 +63,7 @@ class YesterdayAirQualityView: UIView {
 
 class YesterdayAirQualityView_PreviewViewController: UIViewController {
     override func viewDidLoad() {
-        self.view = YesterdayAirQualityView(aqi: "49",
-                                            description: "High Air Quality",
-                                            color: .green)
+        self.view = YesterdayAirQualityView(config: AQIViewConfiguration(49))
     }
 }
 

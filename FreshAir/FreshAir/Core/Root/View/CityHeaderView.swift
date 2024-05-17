@@ -17,8 +17,10 @@ class CityHeaderView: UIView {
     init(station: String, lat: String, long: String) {
         cityLabel = UILabel()
         cityLabel.text = station
-        cityLabel.font = UIFont.systemFont(ofSize: 36, weight:.light)
+        cityLabel.font = UIFont.systemFont(ofSize: 30, weight:.light)
         cityLabel.textAlignment = .center
+        cityLabel.lineBreakMode = .byWordWrapping
+        cityLabel.numberOfLines = 0
         cityLabel.translatesAutoresizingMaskIntoConstraints = false
         
         latLabel = UILabel()

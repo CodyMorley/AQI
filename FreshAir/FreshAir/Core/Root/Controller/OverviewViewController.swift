@@ -14,7 +14,7 @@ import Combine
 import UIKit
 import SwiftUI
 
-class ViewController: UIViewController {
+class OverviewViewController: UIViewController {
     private var activityIndicator: UIActivityIndicatorView?
     private var header: CityHeaderView?
     private var today: TodayAirQualityView?
@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     private var tomorrow: ForecastAirQualityView?
     private var dataManager: AirQualityDataManaging
     private var cancelBag = Set<AnyCancellable>()
-    private let headerHeight: CGFloat = 128
-    private let spaceConstant: CGFloat = 116
+    private let headerHeight: CGFloat = 152
+    private let spaceConstant: CGFloat = 108
     
     init(dataManager: AirQualityDataManaging = AirQualityDataManager()) {
         self.dataManager = dataManager
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSubviews(withData: dataManager.publisher.value)
+        configureSubviewState(withData: dataManager.publisher.value)
     }
     
     
@@ -47,6 +47,7 @@ class ViewController: UIViewController {
                 header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                 header.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 header.heightAnchor.constraint(equalToConstant: headerHeight),
+                header.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.90),
                 today.topAnchor.constraint(equalTo: header.bottomAnchor, constant: spaceConstant),
                 today.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 today.heightAnchor.constraint(equalToConstant: 48),
@@ -96,42 +97,44 @@ class ViewController: UIViewController {
         background.layer.zPosition = -2
     }
     
-    private func configureSubviews(withData data: AirData?) {
-        configureBackground()
-        createAndAddSubviews(withData: data)
-        activateConstraints()
-    }
-    
-    private func createAndAddSubviews(withData data: AirData?) {
-        guard let data else {
-            configureActivityIndicator()
-            header?.removeFromSuperview()
-            header = nil
-            today?.removeFromSuperview()
-            today = nil
-            yesterday?.removeFromSuperview()
-            yesterday = nil
-            tomorrow?.removeFromSuperview()
-            tomorrow = nil
-            addStateSubviews()
-            return
-        }
+    private func configureDataSubviews(withData data: AirData) {
         header = CityHeaderView(station: data.city.name,
                                 lat: "\(data.city.geo[0])",
                                 long: "\(data.city.geo[1])")
         header?.translatesAutoresizingMaskIntoConstraints = false
-        today = TodayAirQualityView(aqi: "\(data.aqi)",
-                                    description: getTextDescription(for: data.aqi),
-                                    color: getAssociatedColor(for: data.aqi))
+        
+        let todayConfig = AQIViewConfiguration(data.aqi)
+        let yesterdayConfig = AQIViewConfiguration(data.forecast.daily["pm25"]?[0].avg ?? 00)
+        let tomorrowConfig = AQIViewConfiguration(data.forecast.daily["pm25"]?[2].avg ?? 00)
+        today = TodayAirQualityView(config: todayConfig)
         today?.translatesAutoresizingMaskIntoConstraints = false
-        yesterday = YesterdayAirQualityView(aqi: "\(data.forecast.daily["pm25"]?[0].avg ?? 00)",
-                                            description: getTextDescription(for: data.forecast.daily["pm25"]?[0].avg ?? -1),
-                                            color: getAssociatedColor(for: data.forecast.daily["pm25"]?[0].avg ?? -1))
+        yesterday = YesterdayAirQualityView(config: yesterdayConfig)
         yesterday?.translatesAutoresizingMaskIntoConstraints = false
-        tomorrow = ForecastAirQualityView(aqi: "\(data.forecast.daily["pm25"]?[2].avg ?? 00)",
-                                          description: getTextDescription(for: data.forecast.daily["pm25"]?[2].avg ?? -1),
-                                          color: getAssociatedColor(for: data.forecast.daily["pm25"]?[2].avg ?? -1))
+        tomorrow = ForecastAirQualityView(config: tomorrowConfig)
         tomorrow?.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func configureSubviewState(withData data: AirData?) {
+        configureBackground()
+        createAndAddStateSubviews(withData: data)
+        activateConstraints()
+    }
+    
+    private func createAndAddStateSubviews(withData data: AirData?) {
+        guard let data else {
+            configureActivityIndicator()
+            header?.removeFromSuperview()
+            today?.removeFromSuperview()
+            yesterday?.removeFromSuperview()
+            tomorrow?.removeFromSuperview()
+            header = nil
+            today = nil
+            yesterday = nil
+            tomorrow = nil
+            addStateSubviews()
+            return
+        }
+        configureDataSubviews(withData: data)
         activityIndicator?.removeFromSuperview()
         activityIndicator = nil
         addStateSubviews()
@@ -148,49 +151,11 @@ class ViewController: UIViewController {
     
     private func updateViews(_ data: AirData?) {
         guard let data = data else { return }
-        configureSubviews(withData: data)
+        configureSubviewState(withData: data)
         view.setNeedsDisplay()
-    }
-    
-    private func getTextDescription(for aqi: Int) -> String {
-        switch aqi {
-        case Int.min...50:
-            "High Air Quality"
-        case 51...100:
-            "Moderate Air Quality"
-        case 101...150:
-            "Air Quality Unhealthy for Sensitive Groups"
-        case 151...200:
-            "Unhealthy Air Quality"
-        case 201...300:
-            "Very Unhealthy Air Quality"
-        case 300...Int.max:
-            "Air Quality Hazaradous. Seek Shelter Indoors."
-        default:
-            "Unknown air quality"
-        }
-    }
-    
-    private func getAssociatedColor(for aqi: Int) -> UIColor {
-        switch aqi {
-        case Int.min...50:
-            UIColor.green
-        case 51...100:
-            UIColor.yellow
-        case 101...150:
-            UIColor.orange
-        case 151...200:
-            UIColor.purple
-        case 201...300:
-            UIColor.red
-        case 300...Int.max:
-            UIColor.red
-        default:
-            UIColor.gray
-        }
     }
 }
 
 #Preview {
-    ViewController()
+    OverviewViewController()
 }

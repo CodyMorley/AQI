@@ -13,9 +13,12 @@
 		0417F5192BF5C7D400EEFF53 /* YesterdayAirQualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5182BF5C7D400EEFF53 /* YesterdayAirQualityView.swift */; };
 		0417F51B2BF5CC0C00EEFF53 /* CityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F51A2BF5CC0C00EEFF53 /* CityHeaderView.swift */; };
 		0417F51E2BF6BB1800EEFF53 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F51D2BF6BB1800EEFF53 /* NetworkResult.swift */; };
+		0417F5202BF6D60000EEFF53 /* ViewConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F51F2BF6D60000EEFF53 /* ViewConfigurationManager.swift */; };
+		0417F5232BF6D69500EEFF53 /* AQIViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5222BF6D69500EEFF53 /* AQIViewConfiguration.swift */; };
+		0417F52B2BF6E30900EEFF53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E0BF2BF3F4FD00C63A67 /* LaunchScreen.storyboard */; };
 		04F3E0B52BF3F4FC00C63A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */; };
 		04F3E0B72BF3F4FC00C63A67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */; };
-		04F3E0B92BF3F4FC00C63A67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B82BF3F4FC00C63A67 /* ViewController.swift */; };
+		04F3E0B92BF3F4FC00C63A67 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B82BF3F4FC00C63A67 /* OverviewViewController.swift */; };
 		04F3E0BE2BF3F4FD00C63A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E0BD2BF3F4FD00C63A67 /* Assets.xcassets */; };
 		04F3E0C12BF3F4FD00C63A67 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E0C02BF3F4FD00C63A67 /* Base */; };
 		04F3E0CC2BF3F4FD00C63A67 /* FreshAirTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0CB2BF3F4FD00C63A67 /* FreshAirTests.swift */; };
@@ -56,10 +59,12 @@
 		0417F5182BF5C7D400EEFF53 /* YesterdayAirQualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayAirQualityView.swift; sourceTree = "<group>"; };
 		0417F51A2BF5CC0C00EEFF53 /* CityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHeaderView.swift; sourceTree = "<group>"; };
 		0417F51D2BF6BB1800EEFF53 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		0417F51F2BF6D60000EEFF53 /* ViewConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfigurationManager.swift; sourceTree = "<group>"; };
+		0417F5222BF6D69500EEFF53 /* AQIViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIViewConfiguration.swift; sourceTree = "<group>"; };
 		04F3E0B12BF3F4FC00C63A67 /* FreshAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04F3E0B82BF3F4FC00C63A67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04F3E0B82BF3F4FC00C63A67 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		04F3E0BD2BF3F4FD00C63A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04F3E0C02BF3F4FD00C63A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04F3E0C22BF3F4FD00C63A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0417F5212BF6D65400EEFF53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0417F5222BF6D69500EEFF53 /* AQIViewConfiguration.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		04F3E0A82BF3F4FC00C63A67 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 		04F3E0E62BF3F5EC00C63A67 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				0417F5212BF6D65400EEFF53 /* Model */,
 				04F3E0EA2BF3F7B500C63A67 /* Controller */,
 				04F3E0E92BF3F7AF00C63A67 /* View */,
 			);
@@ -219,7 +233,8 @@
 		04F3E0EA2BF3F7B500C63A67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				04F3E0B82BF3F4FC00C63A67 /* ViewController.swift */,
+				04F3E0B82BF3F4FC00C63A67 /* OverviewViewController.swift */,
+				0417F51F2BF6D60000EEFF53 /* ViewConfigurationManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -353,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0417F52B2BF6E30900EEFF53 /* LaunchScreen.storyboard in Resources */,
 				04F3E0BE2BF3F4FD00C63A67 /* Assets.xcassets in Resources */,
 				04F3E0C12BF3F4FD00C63A67 /* Base in Resources */,
 			);
@@ -380,15 +396,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0417F5172BF5C7B800EEFF53 /* ForecastAirQualityView.swift in Sources */,
-				04F3E0B92BF3F4FC00C63A67 /* ViewController.swift in Sources */,
+				04F3E0B92BF3F4FC00C63A67 /* OverviewViewController.swift in Sources */,
 				0417F5192BF5C7D400EEFF53 /* YesterdayAirQualityView.swift in Sources */,
 				0417F51E2BF6BB1800EEFF53 /* NetworkResult.swift in Sources */,
 				04F3E0F52BF4436800C63A67 /* IAQI.swift in Sources */,
 				04F3E0EF2BF442A900C63A67 /* AirData.swift in Sources */,
+				0417F5202BF6D60000EEFF53 /* ViewConfigurationManager.swift in Sources */,
 				0417F5152BF5C79600EEFF53 /* TodayAirQualityView.swift in Sources */,
 				04F3E1032BF4869B00C63A67 /* AirQualityDataManager.swift in Sources */,
 				04F3E0FB2BF444AE00C63A67 /* DailyForecast.swift in Sources */,
 				04F3E0F92BF4448300C63A67 /* Forecast.swift in Sources */,
+				0417F5232BF6D69500EEFF53 /* AQIViewConfiguration.swift in Sources */,
 				0417F51B2BF5CC0C00EEFF53 /* CityHeaderView.swift in Sources */,
 				04F3E0FE2BF4472000C63A67 /* AirDataFetcher.swift in Sources */,
 				04F3E0F12BF442DC00C63A67 /* Attribution.swift in Sources */,
@@ -576,7 +594,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"Fresh Air needs access to your location to measure the nearby air quality. This information is not retained .\"";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Fresh Air needs access to your location to measure the nearby air quality. This information is not retained .\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -605,7 +623,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"Fresh Air needs access to your location to measure the nearby air quality. This information is not retained .\"";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Fresh Air needs access to your location to measure the nearby air quality. This information is not retained .\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

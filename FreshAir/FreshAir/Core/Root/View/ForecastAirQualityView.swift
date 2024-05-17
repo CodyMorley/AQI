@@ -13,7 +13,7 @@ class ForecastAirQualityView: UIView {
     private let valueLabel: UILabel
     private let stack: UIStackView
 
-    init(aqi: String, description: String, color: UIColor) {
+    init(config: AQIViewConfiguration) {
         headerLabel = UILabel()
         headerLabel.text = "Tomorrow's Forecast:"
         headerLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)
@@ -21,7 +21,7 @@ class ForecastAirQualityView: UIView {
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         
         valueLabel = UILabel()
-        valueLabel.text = aqi
+        valueLabel.text = config.aqi
         valueLabel.font = UIFont.monospacedSystemFont(ofSize: 84, weight: UIFont.Weight.bold)
         valueLabel.textColor = .green
         valueLabel.textAlignment = .center
@@ -29,9 +29,9 @@ class ForecastAirQualityView: UIView {
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         
         descriptionLabel = UILabel()
-        descriptionLabel.text = description
+        descriptionLabel.text = config.qualityDescription
         descriptionLabel.font = UIFont.monospacedSystemFont(ofSize: 14, weight: UIFont.Weight.bold)
-        descriptionLabel.textColor = color
+        descriptionLabel.textColor = config.color
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         stack = UIStackView(arrangedSubviews: [headerLabel, valueLabel, descriptionLabel])
@@ -62,9 +62,7 @@ class ForecastAirQualityView: UIView {
 
 class ForecastAirQualityView_PreviewViewController: UIViewController {
     override func viewDidLoad() {
-        self.view = ForecastAirQualityView(aqi: "49",
-                                            description: "High Air Quality",
-                                            color: .green)
+        self.view = ForecastAirQualityView(config: AQIViewConfiguration(29))
     }
 }
 
