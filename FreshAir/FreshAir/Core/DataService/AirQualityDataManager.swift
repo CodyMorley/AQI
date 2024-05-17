@@ -12,6 +12,7 @@ import Foundation
 
 protocol AirQualityDataManaging {
     var publisher: CurrentValueSubject<AirData?, Never> { get }
+    func fetchAirData() async
 }
 
 
@@ -20,6 +21,10 @@ class MockAirQualityDataManager: AirQualityDataManaging {
     
     func publish() {
         publisher.send(AirData.mockAirData)
+    }
+    
+    func fetchAirData() async {
+        publish()
     }
 }
 

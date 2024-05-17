@@ -17,6 +17,7 @@
 		0417F52B2BF6E30900EEFF53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E0BF2BF3F4FD00C63A67 /* LaunchScreen.storyboard */; };
 		0417F52D2BF7160100EEFF53 /* AirQualityDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F52C2BF7160100EEFF53 /* AirQualityDataManagerTests.swift */; };
 		0417F52F2BF7221100EEFF53 /* OverviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F52E2BF7221100EEFF53 /* OverviewViewControllerTests.swift */; };
+		0417F5332BF7873700EEFF53 /* ResetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F5322BF7873700EEFF53 /* ResetLocationViewController.swift */; };
 		04F3E0B52BF3F4FC00C63A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */; };
 		04F3E0B72BF3F4FC00C63A67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */; };
 		04F3E0B92BF3F4FC00C63A67 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E0B82BF3F4FC00C63A67 /* OverviewViewController.swift */; };
@@ -63,6 +64,7 @@
 		0417F5222BF6D69500EEFF53 /* AQIViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIViewConfiguration.swift; sourceTree = "<group>"; };
 		0417F52C2BF7160100EEFF53 /* AirQualityDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityDataManagerTests.swift; sourceTree = "<group>"; };
 		0417F52E2BF7221100EEFF53 /* OverviewViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewControllerTests.swift; sourceTree = "<group>"; };
+		0417F5322BF7873700EEFF53 /* ResetLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetLocationViewController.swift; sourceTree = "<group>"; };
 		04F3E0B12BF3F4FC00C63A67 /* FreshAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F3E0B42BF3F4FC00C63A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F3E0B62BF3F4FC00C63A67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				04F3E1022BF4869B00C63A67 /* AirQualityDataManager.swift */,
+				0417F5322BF7873700EEFF53 /* ResetLocationViewController.swift */,
 			);
 			path = DataService;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				04F3E0F92BF4448300C63A67 /* Forecast.swift in Sources */,
 				0417F5232BF6D69500EEFF53 /* AQIViewConfiguration.swift in Sources */,
 				0417F51B2BF5CC0C00EEFF53 /* CityHeaderView.swift in Sources */,
+				0417F5332BF7873700EEFF53 /* ResetLocationViewController.swift in Sources */,
 				04F3E0FE2BF4472000C63A67 /* AirDataFetcher.swift in Sources */,
 				04F3E0F12BF442DC00C63A67 /* Attribution.swift in Sources */,
 				04F3E0F72BF4442A00C63A67 /* TimeInfo.swift in Sources */,
